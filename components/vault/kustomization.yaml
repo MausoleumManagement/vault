@@ -6,7 +6,4 @@ helmCharts:
     version: 0.30.0
     releaseName: vaultrelease
     namespace: vault
-    #valuesFile: values.yaml
-    #additionalValuesFiles:
-    #- values-file-1.yml
-    #- values-file-2.yml
+    valuesFile: values.yaml

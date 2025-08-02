@@ -1,0 +1,6 @@
+global:
+  namespace: vault
+  # true is the default value 
+  # i would rather make this work properly
+  # perhaps there is something we can do with self signed certificates?
+  tlsDisable: true
