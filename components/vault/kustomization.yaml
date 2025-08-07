@@ -3,7 +3,7 @@
 helmCharts:
   - name: vault
     repo: https://helm.releases.hashicorp.com
-    version: 0.30.0
+    version: 0.30.1
     releaseName: vaultrelease
     namespace: vault
     valuesFile: values.yaml

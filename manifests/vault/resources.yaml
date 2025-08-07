@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/instance: vaultrelease
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
-    helm.sh/chart: vault-0.30.0
+    helm.sh/chart: vault-0.30.1
   name: vaultrelease
   namespace: vault
 ---
@@ -62,7 +62,7 @@ metadata:
     app.kubernetes.io/instance: vaultrelease
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
-    helm.sh/chart: vault-0.30.0
+    helm.sh/chart: vault-0.30.1
   name: vaultrelease-server-binding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -113,7 +113,7 @@ metadata:
     app.kubernetes.io/instance: vaultrelease
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
-    helm.sh/chart: vault-0.30.0
+    helm.sh/chart: vault-0.30.1
   name: vaultrelease-config
   namespace: vault
 ---
@@ -124,7 +124,7 @@ metadata:
     app.kubernetes.io/instance: vaultrelease
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
-    helm.sh/chart: vault-0.30.0
+    helm.sh/chart: vault-0.30.1
   name: vaultrelease
   namespace: vault
 spec:
@@ -167,7 +167,7 @@ metadata:
     app.kubernetes.io/instance: vaultrelease
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/name: vault
-    helm.sh/chart: vault-0.30.0
+    helm.sh/chart: vault-0.30.1
     vault-internal: "true"
   name: vaultrelease-internal
   namespace: vault
@@ -233,7 +233,7 @@ spec:
         - name: AGENT_INJECT_VAULT_AUTH_PATH
           value: auth/kubernetes
         - name: AGENT_INJECT_VAULT_IMAGE
-          value: hashicorp/vault:1.19.0
+          value: hashicorp/vault:1.20.1
         - name: AGENT_INJECT_TLS_AUTO
           value: vaultrelease-agent-injector-cfg
         - name: AGENT_INJECT_TLS_AUTO_HOSTS
@@ -258,7 +258,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.name
-        image: hashicorp/vault-k8s:1.6.2
+        image: hashicorp/vault-k8s:1.7.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 2
@@ -329,7 +329,7 @@ spec:
         app.kubernetes.io/instance: vaultrelease
         app.kubernetes.io/name: vault
         component: server
-        helm.sh/chart: vault-0.30.0
+        helm.sh/chart: vault-0.30.1
     spec:
       affinity:
         podAntiAffinity:
@@ -387,7 +387,7 @@ spec:
           value: https://$(HOSTNAME).vaultrelease-internal:8201
         - name: HOME
           value: /home/vault
-        image: hashicorp/vault:1.19.0
+        image: hashicorp/vault:1.20.1
         imagePullPolicy: IfNotPresent
         lifecycle:
           preStop:
@@ -482,7 +482,7 @@ spec:
     env:
     - name: VAULT_ADDR
       value: http://vaultrelease.vault.svc:8200
-    image: hashicorp/vault:1.19.0
+    image: hashicorp/vault:1.20.1
     imagePullPolicy: IfNotPresent
     name: vaultrelease-server-test
   restartPolicy: Never
